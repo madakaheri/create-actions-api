@@ -15,15 +15,16 @@ import esprima from 'esprima-next';
  *
  * また、 **スプレッド構文には対応しません。**
  *
- * @param {string} apiActionsDirectory
- * @param {string} actionName
+ * @param {Object} params
+ * @param {string} params.srcPath
+ * @param {string} params.actionName
  * @returns {Promise<{
  *   docComment: string,
  *   inputName: string,
  * }>}
  */
-export async function extractFunctionParts(apiActionsDirectory, actionName) {
-	const path = `${apiActionsDirectory}/${actionName}/index.js`;
+export async function extractFunctionParts({srcPath, actionName}) {
+	const path = `${srcPath}/${actionName}/index.js`;
 	const code = await fs.readFile(path, 'utf8');
 	const ast = esprima.parseModule(code, {
 		range: true,
