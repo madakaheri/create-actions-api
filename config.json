@@ -1,0 +1,9 @@
+{
+	"actionApiType": "aws-rest",
+	"apiPath": "test-repo/api",
+	"sdkConfig": {
+		"rootPath": "test-repo/sdk",
+		"srcPath": "test-repo/api/src/actions",
+		"outPath": "test-repo/sdk/src/actions"
+	}
+}

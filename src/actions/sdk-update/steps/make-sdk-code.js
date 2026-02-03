@@ -1,8 +1,6 @@
 import fs from 'node:fs/promises';
 import _ from 'lodash';
 
-const lambdaFunctionName = 'actions-api-dev';
-
 /**
  * SDKコードを生成します。
  * @param {Object} options
@@ -11,7 +9,11 @@ const lambdaFunctionName = 'actions-api-dev';
  * @param {string} [options.inputName] default: ''
  * @returns {Promise<string>}
  */
-export async function makeSdkCode({actionName, docComment = '', inputName = ''}) {
+export async function makeSdkCode({
+	actionName,
+	docComment = '',
+	inputName = '',
+}) {
 	if (!actionName) {
 		throw new Error('actionName is required');
 	}
@@ -26,7 +28,6 @@ export async function makeSdkCode({actionName, docComment = '', inputName = ''})
 	const T_ACTION_KEBAB = _.kebabCase(actionName);
 	const T_ACTION_CAMEL = _.camelCase(actionName);
 	const code = stub
-		.replaceAll('lambdaFunctionName', lambdaFunctionName)
 		.replaceAll('T_DOC_COMMENT', T_DOC_COMMENT)
 		.replaceAll('T_INPUT_OR_NULL', T_INPUT_OR_NULL)
 		.replaceAll('T_INPUT', T_INPUT)

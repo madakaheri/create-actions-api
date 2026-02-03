@@ -6,8 +6,10 @@
     "create-actions-api": "src/main.js"
   },
   "scripts": {
-    "test": "node --test",
-    "api:publish": "node @scripts/main.js api-publish"
+    "lint": "xo",
+    "format": "xo --fix",
+    "test": "xo && node --test",
+    "sdk:update": "node src/main.js sdk-update"
   },
   "keywords": [],
   "author": "MadakaHeri",
