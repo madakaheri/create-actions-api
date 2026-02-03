@@ -32,7 +32,7 @@ Actions API Scripts
 ---------------------------------------
 
 
-Usage: node @scripts/main.js <command>
+Usage: node src/main.js <command>
 
 Commands:
 	sdk-update         Generate SDK Actions from API Actions and update existing SDK
@@ -42,7 +42,7 @@ Commands:
 
 switch (command) {
 	case 'sdk-update': {
-		const {sdkUpdate} = await import('./sdk-update/index.js');
+		const {sdkUpdate} = await import('./actions/sdk-update/index.js');
 		await sdkUpdate({
 			srcPath: sdkConfig.srcPath,
 			outPath: sdkConfig.outPath,
@@ -51,7 +51,7 @@ switch (command) {
 	}
 
 	case 'api-init': {
-		const {apiInit} = await import('./api-init/index.js');
+		const {apiInit} = await import('./actions/api-init/index.js');
 		await apiInit({
 			actionApiType,
 			rootPath: apiPath,
@@ -60,7 +60,7 @@ switch (command) {
 	}
 
 	case 'sdk-init': {
-		const {sdkInit} = await import('./sdk-init/index.js');
+		const {sdkInit} = await import('./actions/sdk-init/index.js');
 		await sdkInit({
 			actionApiType,
 			rootPath: sdkConfig.rootPath,
