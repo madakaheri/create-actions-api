@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import {test} from 'node:test';
-import {makeSrcDirectory} from './make-src-directory.js';
+import {makeSourceDirectory} from './make-src-directory.js';
 
 /**
  * 一時ディレクトリを使って処理を実行します。
@@ -19,10 +19,10 @@ async function withTemporaryRoot(run) {
 	}
 }
 
-test('makeSrcDirectory creates src directory', async () => {
+test('makeSourceDirectory creates src directory', async () => {
 	await withTemporaryRoot(async temporaryRoot => {
-		const srcPath = path.join(temporaryRoot, 'src');
-		await makeSrcDirectory(srcPath);
-		await assert.doesNotReject(() => fs.access(srcPath));
+		const sourcePath = path.join(temporaryRoot, 'src');
+		await makeSourceDirectory(sourcePath);
+		await assert.doesNotReject(() => fs.access(sourcePath));
 	});
 });

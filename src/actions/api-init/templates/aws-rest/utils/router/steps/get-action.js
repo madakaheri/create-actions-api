@@ -14,7 +14,7 @@ export async function getAction(event) {
 	const actionNameCamel = kekabToCamel(actionNameKekab);
 
 	const filePath = `../../actions/${actionNameKekab}/index.js`;
-	// eslint-disable-next-line promise/prefer-await-to-then
+
 	const module = await import(filePath).catch(error => {
 		if (error.code === 'ERR_MODULE_NOT_FOUND') {
 			const error = new Error('Directory Not Found');

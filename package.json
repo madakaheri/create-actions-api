@@ -15,10 +15,13 @@
   "author": "MadakaHeri",
   "license": "ISC",
   "type": "module",
-  "devDependencies": {
+  "dependencies": {
     "esprima-next": "^6.0.3",
-    "lodash": "^4.17.23",
-    "xo": "^1.2.3"
+    "lodash.camelcase": "^4.3.0",
+    "lodash.kebabcase": "^4.1.1"
+  },
+  "devDependencies": {
+    "xo": "^0.60.0"
   },
   "xo": {
     "rules": {

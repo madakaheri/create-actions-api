@@ -1,6 +1,6 @@
 import path from 'node:path';
 import {ensureEmptyRoot} from './steps/ensure-empty-root.js';
-import {makeSrcDirectory} from './steps/make-src-directory.js';
+import {makeSourceDirectory} from './steps/make-src-directory.js';
 import {copyAssets} from './steps/copy-assets.js';
 import {ensureActionsDirectory} from './steps/ensure-actions-directory.js';
 
@@ -14,8 +14,8 @@ import {ensureActionsDirectory} from './steps/ensure-actions-directory.js';
 export async function sdkInit({actionApiType, rootPath}) {
 	await ensureEmptyRoot(rootPath);
 
-	const srcPath = path.join(rootPath, 'src');
-	await makeSrcDirectory(srcPath);
-	await copyAssets({actionApiType, srcPath});
-	await ensureActionsDirectory(srcPath);
+	const sourcePath = path.join(rootPath, 'src');
+	await makeSourceDirectory(sourcePath);
+	await copyAssets({actionApiType, srcPath: sourcePath});
+	await ensureActionsDirectory(sourcePath);
 }

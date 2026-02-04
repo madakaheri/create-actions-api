@@ -5,6 +5,6 @@ import fs from 'node:fs/promises';
  * @param {string} srcPath
  * @returns {Promise<void>}
  */
-export async function makeSrcDirectory(srcPath) {
-	await fs.mkdir(srcPath, {recursive: true});
+export async function makeSourceDirectory(sourcePath) {
+	await fs.mkdir(sourcePath, {recursive: true});
 }

@@ -35,21 +35,21 @@ async function withTemporaryRoot(run) {
 
 test('copyTemplate copies aws-rest template into src', async () => {
 	await withTemporaryRoot(async temporaryRoot => {
-		const srcPath = path.join(temporaryRoot, 'src');
-		await fs.mkdir(srcPath, {recursive: true});
-		await copyTemplate({actionApiType: 'aws-rest', srcPath});
-		assert.equal(await pathExists(path.join(srcPath, 'index.js')), true);
-		assert.equal(await pathExists(path.join(srcPath, 'utils', 'auth.js')), true);
-		assert.equal(await pathExists(path.join(srcPath, 'utils', 'router', 'index.js')), true);
+		const sourcePath = path.join(temporaryRoot, 'src');
+		await fs.mkdir(sourcePath, {recursive: true});
+		await copyTemplate({actionApiType: 'aws-rest', srcPath: sourcePath});
+		assert.equal(await pathExists(path.join(sourcePath, 'index.js')), true);
+		assert.equal(await pathExists(path.join(sourcePath, 'utils', 'auth.js')), true);
+		assert.equal(await pathExists(path.join(sourcePath, 'utils', 'router', 'index.js')), true);
 	});
 });
 
 test('copyTemplate copies aws-lambda template into src', async () => {
 	await withTemporaryRoot(async temporaryRoot => {
-		const srcPath = path.join(temporaryRoot, 'src');
-		await fs.mkdir(srcPath, {recursive: true});
-		await copyTemplate({actionApiType: 'aws-lambda', srcPath});
-		assert.equal(await pathExists(path.join(srcPath, 'index.js')), true);
-		assert.equal(await pathExists(path.join(srcPath, 'utils', 'router', 'index.js')), true);
+		const sourcePath = path.join(temporaryRoot, 'src');
+		await fs.mkdir(sourcePath, {recursive: true});
+		await copyTemplate({actionApiType: 'aws-lambda', srcPath: sourcePath});
+		assert.equal(await pathExists(path.join(sourcePath, 'index.js')), true);
+		assert.equal(await pathExists(path.join(sourcePath, 'utils', 'router', 'index.js')), true);
 	});
 });

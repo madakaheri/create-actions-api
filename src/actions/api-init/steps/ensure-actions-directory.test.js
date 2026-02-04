@@ -21,9 +21,9 @@ async function withTemporaryRoot(run) {
 
 test('ensureActionsDirectory creates actions directory', async () => {
 	await withTemporaryRoot(async temporaryRoot => {
-		const srcPath = path.join(temporaryRoot, 'src');
-		await fs.mkdir(srcPath, {recursive: true});
-		await ensureActionsDirectory(srcPath);
-		await assert.doesNotReject(() => fs.access(path.join(srcPath, 'actions')));
+		const sourcePath = path.join(temporaryRoot, 'src');
+		await fs.mkdir(sourcePath, {recursive: true});
+		await ensureActionsDirectory(sourcePath);
+		await assert.doesNotReject(() => fs.access(path.join(sourcePath, 'actions')));
 	});
 });

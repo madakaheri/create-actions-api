@@ -35,7 +35,7 @@ export async function extractFunctionParts({srcPath, actionName}) {
 	const comments = Array.isArray(ast.comments) ? ast.comments : [];
 	const bodyNodes = Array.isArray(ast.body) ? ast.body : [];
 
-	let docComment = '';
+	let documentComment = '';
 	let parameters = [];
 
 	for (const node of bodyNodes) {
@@ -89,11 +89,11 @@ export async function extractFunctionParts({srcPath, actionName}) {
 			...(node.leadingComments ?? []),
 		];
 
-		const attachedDoc = attachedComments
+		const attachedDocument = attachedComments
 			.filter(comment => comment.type === 'Block')
 			.findLast(comment => comment.value.trim().startsWith('*'));
 
-		const leadingComment = attachedDoc ?? comments
+		const leadingComment = attachedDocument ?? comments
 			.filter(comment => comment.type === 'Block')
 			.filter(comment => comment.range?.[1] <= decl.range[0])
 			.filter(comment => {
@@ -102,17 +102,17 @@ export async function extractFunctionParts({srcPath, actionName}) {
 			})
 			.findLast(comment => comment.value.trim().startsWith('*'));
 
-		docComment = leadingComment
+		documentComment = leadingComment
 			? code.slice(leadingComment.range[0], leadingComment.range[1])
 			: '';
 
-		if (docComment) {
+		if (documentComment) {
 			break;
 		}
 	}
 
 	return {
-		docComment: docComment.trim(),
+		docComment: documentComment.trim(),
 		inputName: parameters[0],
 	};
 }

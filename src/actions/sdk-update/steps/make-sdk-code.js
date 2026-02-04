@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
-import _ from 'lodash';
+import camelCase from 'lodash/camelCase.js';
+import kebabCase from 'lodash/kebabCase.js';
 
 /**
  * SDKコードを生成します。
@@ -11,7 +12,7 @@ import _ from 'lodash';
  */
 export async function makeSdkCode({
 	actionName,
-	docComment = '',
+	docComment: documentComment = '',
 	inputName = '',
 }) {
 	if (!actionName) {
@@ -20,13 +21,13 @@ export async function makeSdkCode({
 
 	const stub = await fs.readFile(new URL('../stubs/sdk-action.stub', import.meta.url), 'utf8');
 
-	docComment &&= '\n' + docComment;
+	documentComment &&= '\n' + documentComment;
 
-	const T_DOC_COMMENT = docComment;
+	const T_DOC_COMMENT = documentComment;
 	const T_INPUT = inputName;
 	const T_INPUT_OR_NULL = inputName || 'null';
-	const T_ACTION_KEBAB = _.kebabCase(actionName);
-	const T_ACTION_CAMEL = _.camelCase(actionName);
+	const T_ACTION_KEBAB = kebabCase(actionName);
+	const T_ACTION_CAMEL = camelCase(actionName);
 	const code = stub
 		.replaceAll('T_DOC_COMMENT', T_DOC_COMMENT)
 		.replaceAll('T_INPUT_OR_NULL', T_INPUT_OR_NULL)

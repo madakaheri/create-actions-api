@@ -5,8 +5,8 @@ import fs from 'node:fs/promises';
  * @param {string} srcPath
  * @returns {Promise<string[]>}
  */
-export async function searchActionNames(srcPath) {
-	const dirrents = await fs.readdir(srcPath, {
+export async function searchActionNames(sourcePath) {
+	const dirrents = await fs.readdir(sourcePath, {
 		withFileTypes: true,
 		recursive: false,
 	});

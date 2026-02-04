@@ -35,21 +35,21 @@ async function withTemporaryRoot(run) {
 
 test('copyAssets copies aws-rest assets into src', async () => {
 	await withTemporaryRoot(async temporaryRoot => {
-		const srcPath = path.join(temporaryRoot, 'src');
-		await fs.mkdir(srcPath, {recursive: true});
-		await copyAssets({actionApiType: 'aws-rest', srcPath});
-		assert.equal(await pathExists(path.join(srcPath, 'index.js')), true);
-		assert.equal(await pathExists(path.join(srcPath, 'utils', 'api.js')), true);
+		const sourcePath = path.join(temporaryRoot, 'src');
+		await fs.mkdir(sourcePath, {recursive: true});
+		await copyAssets({actionApiType: 'aws-rest', srcPath: sourcePath});
+		assert.equal(await pathExists(path.join(sourcePath, 'index.js')), true);
+		assert.equal(await pathExists(path.join(sourcePath, 'utils', 'api.js')), true);
 	});
 });
 
 test('copyAssets copies aws-lambda assets into src', async () => {
 	await withTemporaryRoot(async temporaryRoot => {
-		const srcPath = path.join(temporaryRoot, 'src');
-		await fs.mkdir(srcPath, {recursive: true});
-		await copyAssets({actionApiType: 'aws-lambda', srcPath});
-		assert.equal(await pathExists(path.join(srcPath, 'index.js')), true);
-		assert.equal(await pathExists(path.join(srcPath, 'utils', 'api.js')), true);
-		assert.equal(await pathExists(path.join(srcPath, 'utils', 'configure.js')), true);
+		const sourcePath = path.join(temporaryRoot, 'src');
+		await fs.mkdir(sourcePath, {recursive: true});
+		await copyAssets({actionApiType: 'aws-lambda', srcPath: sourcePath});
+		assert.equal(await pathExists(path.join(sourcePath, 'index.js')), true);
+		assert.equal(await pathExists(path.join(sourcePath, 'utils', 'api.js')), true);
+		assert.equal(await pathExists(path.join(sourcePath, 'utils', 'configure.js')), true);
 	});
 });
