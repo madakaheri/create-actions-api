@@ -35,12 +35,27 @@ Actions API Scripts
 Usage: node src/main.js <command>
 
 Commands:
+	init               Initialize both API and SDK directories
 	api-init           Initialize API directory
 	sdk-init           Initialize SDK directory
 	sdk-update         Generate SDK Actions from API Actions and update existing SDK
 `;
 
 switch (command) {
+	case 'init': {
+		const {apiInit} = await import('./actions/api-init/index.js');
+		await apiInit({
+			actionApiType,
+			rootPath: apiPath,
+		});
+		const {sdkInit} = await import('./actions/sdk-init/index.js');
+		await sdkInit({
+			actionApiType,
+			rootPath: sdkConfig.rootPath,
+		});
+		break;
+	}
+
 	case 'api-init': {
 		const {apiInit} = await import('./actions/api-init/index.js');
 		await apiInit({
