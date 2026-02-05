@@ -131,3 +131,7 @@ dist
 
 # Mac
 .DS_Store
+
+# Template-specific: node_modules in subdirectories
+api/node_modules/
+sdk/node_modules/

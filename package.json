@@ -1,31 +1,12 @@
 {
-  "name": "actions-api",
-  "version": "1.0.0",
-  "description": "このリポジトリは **Actions API** を構成するためのセットアップコマンドを提供します。",
-  "bin": {
-    "create-actions-api": "src/main.js"
-  },
-  "scripts": {
-    "lint": "xo",
-    "format": "xo --fix",
-    "test": "xo && node --test",
-    "sdk:update": "node src/main.js sdk-update"
-  },
-  "keywords": [],
-  "author": "MadakaHeri",
-  "license": "ISC",
-  "type": "module",
-  "dependencies": {
-    "esprima-next": "^6.0.3",
-    "lodash.camelcase": "^4.3.0",
-    "lodash.kebabcase": "^4.1.1"
-  },
-  "devDependencies": {
-    "xo": "^0.60.0"
-  },
-  "xo": {
-    "rules": {
-      "capitalized-comments": "off"
-    }
-  }
+	"name": "create-actions-api",
+	"version": "1.0.0",
+	"description": "Actions API を構成するためのテンプレートリポジトリ",
+	"scripts": {
+		"test": "echo \"This is a template repository. See api/ and sdk/ directories for individual projects.\""
+	},
+	"keywords": ["actions-api", "template", "aws-lambda", "serverless"],
+	"author": "MadakaHeri",
+	"license": "ISC",
+	"type": "module"
 }

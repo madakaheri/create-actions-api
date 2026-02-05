@@ -1,0 +1,23 @@
+{
+	"name": "actions-api",
+	"version": "1.0.0",
+	"description": "Actions API - バックエンド API",
+	"type": "module",
+	"main": "src/index.js",
+	"scripts": {
+		"test": "node --test",
+		"lint": "xo",
+		"format": "xo --fix"
+	},
+	"keywords": ["actions-api", "aws-lambda", "serverless"],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"xo": "^0.60.0"
+	},
+	"xo": {
+		"rules": {
+			"capitalized-comments": "off"
+		}
+	}
+}

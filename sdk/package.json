@@ -1,0 +1,26 @@
+{
+	"name": "actions-api-sdk",
+	"version": "1.0.0",
+	"description": "Actions API SDK - クライアント SDK",
+	"type": "module",
+	"main": "src/index.js",
+	"scripts": {
+		"test": "node --test",
+		"lint": "xo",
+		"format": "xo --fix"
+	},
+	"keywords": ["actions-api", "sdk", "client"],
+	"author": "",
+	"license": "ISC",
+	"peerDependencies": {
+		"aws-amplify": "^6.0.0"
+	},
+	"devDependencies": {
+		"xo": "^0.60.0"
+	},
+	"xo": {
+		"rules": {
+			"capitalized-comments": "off"
+		}
+	}
+}
