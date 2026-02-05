@@ -40,12 +40,15 @@ npm install
 ├── api/              # バックエンド API
 │   ├── src/
 │   │   ├── index.js      # Lambda ハンドラー
-│   │   ├── actions/      # アクション実装
+│   │   ├── actions/      # アクション実装 (ディレクトリ構造)
+│   │   │   └── {actionName}/
+│   │   │       ├── index.js
+│   │   │       └── steps/  # 実行ステップ
 │   │   └── utils/        # ユーティリティ
 │   ├── package.json
 │   └── README.md
 │
-└── sdk/              # クライアント SDK
+└── sdk/              # クライアント SDK (自動生成)
     ├── src/
     │   ├── index.js      # SDK エクスポート
     │   ├── actions/      # アクションクライアント
@@ -58,9 +61,10 @@ npm install
 
 ## 開発の流れ
 
-1. `api/src/actions/` に新しいアクションを実装
-2. `sdk/src/actions/` に対応するクライアント関数を作成
-3. 両方を `index.js` でエクスポート
+1. `api/src/actions/` に新しいアクションをディレクトリとして実装
+   - `{actionName}/index.js` にメイン処理
+   - `{actionName}/steps/` に各実行ステップ
+2. SDK は API から自動生成されます（手動編集不要）
 
 ## ライセンス
 
