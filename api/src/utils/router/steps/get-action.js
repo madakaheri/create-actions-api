@@ -1,3 +1,4 @@
+import * as actions from '../../actions/index.js';
 import {camelToKebab, kekabToCamel} from '../utils/text-transform.js';
 
 /**
@@ -8,25 +9,11 @@ import {camelToKebab, kekabToCamel} from '../utils/text-transform.js';
 export async function getAction(event) {
 	const {path} = event;
 
-	/** @type {[string, 'auth' | 'unauth', string]} */
-	const [_apiVersion, actionName] = path.split('/').filter(Boolean);
+	const [_empty, actionName] = path.split('/').filter(Boolean);
 	const actionNameKekab = camelToKebab(actionName);
 	const actionNameCamel = kekabToCamel(actionNameKekab);
 
-	const filePath = `../../actions/${actionNameKekab}/index.js`;
-
-	const module = await import(filePath).catch(error => {
-		if (error.code === 'ERR_MODULE_NOT_FOUND') {
-			const error = new Error('Directory Not Found');
-			error.name = 'RouteError';
-			error.statusCode = 404;
-			error.cause = {filePath};
-			throw error;
-		} else {
-			throw error;
-		}
-	});
-	const action = module[actionNameCamel];
+	const action = actions[actionNameCamel];
 	if (typeof action !== 'function') {
 		const error = new Error('Action Not Found');
 		error.name = 'RouteError';
