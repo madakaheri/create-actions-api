@@ -3,10 +3,16 @@
 	"version": "1.0.0",
 	"description": "Actions API を構成するためのテンプレートリポジトリ",
 	"scripts": {
-		"test": "echo \"This is a template repository. See api/ and sdk/ directories for individual projects.\""
+		"test": "echo \"This is a template repository. See api/ and sdk/ directories for individual projects.\"",
+		"sdk:update": "node scripts/sdk-update/index.js"
 	},
 	"keywords": ["actions-api", "template", "aws-lambda", "serverless"],
 	"author": "MadakaHeri",
 	"license": "ISC",
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"esprima-next": "^6.0.3",
+		"lodash.camelcase": "^4.3.0",
+		"lodash.kebabcase": "^4.1.1"
+	}
 }

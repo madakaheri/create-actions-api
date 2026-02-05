@@ -54,32 +54,10 @@ console.log(result.message); // "Hello, World!"
 
 ## API アクションとの同期
 
-API 側で新しいアクションを追加した場合、SDK 側でも対応するクライアント関数を作成する必要があります。
+API 側で新しいアクションを追加・変更した場合は、リポジトリルートで次のコマンドを実行すると SDK が自動生成されます（手動編集は不要です）。
 
-例：API に `getUser` アクションを追加した場合：
-
-```javascript
-// sdk/src/actions/get-user.js
-import {api} from '../utils/api.js';
-
-/**
- * ユーザー情報を取得する
- * @param {Object} input
- * @param {string} input.userId - ユーザーID
- * @returns {Promise<Object>}
- */
-export async function getUser(input) {
-    return api.post({
-        action: 'get-user',
-        payload: input,
-    });
-}
-```
-
-```javascript
-// sdk/src/actions/index.js
-export {hello} from './hello.js';
-export {getUser} from './get-user.js';
+```bash
+npm run sdk:update
 ```
 
 ## ライセンス

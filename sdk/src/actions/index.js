@@ -1,1 +1,1 @@
-export {hello} from './hello.js';
+export * from './hello/index.js';

@@ -64,7 +64,7 @@ npm install
 1. `api/src/actions/` に新しいアクションをディレクトリとして実装
    - `{actionName}/index.js` にメイン処理
    - `{actionName}/steps/` に各実行ステップ
-2. SDK は API から自動生成されます（手動編集不要）
+2. SDK は API から自動生成されます（手動編集不要）。更新はリポジトリルートで `npm run sdk:update` を実行して下さい。
 
 ## ライセンス
 
