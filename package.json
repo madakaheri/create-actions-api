@@ -2,9 +2,10 @@
   "name": "actions-api",
   "version": "1.0.0",
   "description": "このリポジトリは **Actions API** を構成するためのセットアップコマンドを提供します。",
-  "bin": {
-    "create-actions-api": "src/main.js"
-  },
+  "workspaces": [
+    "api",
+    "sdk"
+  ],
   "scripts": {
     "lint": "xo",
     "format": "xo --fix",
@@ -31,11 +32,11 @@
   },
   "actions-api": {
     "actionApiType": "aws-lambda",
-    "apiPath": "test-repo/api",
+    "apiPath": "api",
     "sdkConfig": {
-      "rootPath": "test-repo/sdk",
-      "srcPath": "test-repo/api/src/actions",
-      "outPath": "test-repo/sdk/src/actions"
+      "rootPath": "sdk",
+      "srcPath": "api/src/actions",
+      "outPath": "sdk/src/actions"
     }
   }
 }
